@@ -31,11 +31,14 @@ class LandingScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(top: 120),
                     child: Hero(
                       tag: "logo",
-                      child: Text(
-                        "Rounds.",
-                        style: TextStyle(
-                          fontSize: 60,
-                          fontWeight: FontWeight.bold,
+                      child: Material(
+                        color: Colors.transparent,
+                        child: Text(
+                          "Rounds.",
+                          style: TextStyle(
+                            fontSize: 60,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ),
                     ),
@@ -67,22 +70,29 @@ class LoginScreen extends StatelessWidget {
         centerTitle: true,
         title: Text("Login", style: TextStyle(fontWeight: FontWeight.bold)),
       ),
-      body: Container(
-        child: Padding(
+      body: SingleChildScrollView(
+        child: Container(
           padding: const EdgeInsets.all(32.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Align(
-                alignment: Alignment(0.0, -1.0),
-                child: Hero(
-                  tag: "logo",
-                  child: Text(
-                    "Rounds.",
-                    style: TextStyle(
-                      fontSize: 45,
-                      fontWeight: FontWeight.bold,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 25.0),
+                child: Align(
+                  alignment: Alignment(
+                      0, -0.5), // Adjust the y-coordinate to move the text up
+                  child: Hero(
+                    tag: "logo",
+                    child: Material(
+                      color: Colors.transparent,
+                      child: Text(
+                        "Rounds.",
+                        style: TextStyle(
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -94,7 +104,7 @@ class LoginScreen extends StatelessWidget {
                   Text(
                     "Enter your mobile number",
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                   ),
@@ -120,7 +130,7 @@ class LoginScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 40,
+                height: 20,
               ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -128,7 +138,7 @@ class LoginScreen extends StatelessWidget {
                   Text(
                     "Enter your password",
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.w500,
                       color: Colors.black,
                     ),
                   ),
@@ -139,7 +149,9 @@ class LoginScreen extends StatelessWidget {
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
                       hintText: "***********",
-                      hintStyle: TextStyle(color: Colors.grey),
+                      hintStyle: TextStyle(
+                        color: Color.fromRGBO(112, 112, 112, 1),
+                      ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: Constants.borderRadius,
                         borderSide: BorderSide(
@@ -177,9 +189,8 @@ class LoginScreen extends StatelessWidget {
                 height: 20,
               ),
               SizedBox(
-                width: double
-                    .infinity, // This will make the button take the full width
-                height: 60.0, // Adjust the height as needed
+                width: double.infinity,
+                height: 60.0,
                 child: Button(
                   onPressed: () => router.go("/home"),
                   text: "Login",
@@ -198,13 +209,14 @@ class LoginScreen extends StatelessWidget {
                       TextSpan(
                         text: "Don't have an account? ",
                         style: TextStyle(
-                          color: Colors.black,
+                          color: Color.fromRGBO(105, 105, 105, 1),
                           fontWeight: FontWeight.w400,
                         ),
                         children: [
                           TextSpan(
                             text: "Sign up",
                             style: TextStyle(
+                              color: Colors.black,
                               fontWeight: FontWeight.bold,
                             ),
                             recognizer: TapGestureRecognizer()
@@ -243,10 +255,7 @@ class LoginScreen extends StatelessWidget {
                     text: "Continue with Google",
                     onPressed: () => {},
                     assetPath: "assets/images/google_logo.png",
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  )
                 ],
               ),
             ],
