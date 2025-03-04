@@ -146,7 +146,9 @@ class LoginScreen extends StatelessWidget {
                     height: 8,
                   ),
                   TextField(
-                    keyboardType: TextInputType.number,
+                    obscureText: true,
+                    onChanged: (value) {},
+                    obscuringCharacter: "*",
                     decoration: InputDecoration(
                       hintText: "***********",
                       hintStyle: TextStyle(
