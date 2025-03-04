@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rounds/helpers/constants.dart';
 
 class Button extends StatelessWidget {
-
   final String text;
   final VoidCallback onPressed;
   const Button({super.key, required this.text, required this.onPressed});
@@ -11,8 +10,11 @@ class Button extends StatelessWidget {
   Widget build(BuildContext context) {
     return FilledButton(
         style: ButtonStyle(
-            shape: WidgetStateProperty.all(RoundedRectangleBorder(
-                borderRadius: Constants.borderRadius)),
+            shape: WidgetStateProperty.all(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18),
+              ),
+            ),
             backgroundColor:
                 WidgetStateProperty.all(Theme.of(context).primaryColor)),
         onPressed: onPressed,
